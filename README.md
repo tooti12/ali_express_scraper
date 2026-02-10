@@ -21,9 +21,6 @@ A powerful web scraper for extracting top-rated products from AliExpress using S
 - [Troubleshooting](#troubleshooting)
 - [Performance Tips](#performance-tips)
 - [Legal Disclaimer](#legal-disclaimer)
-- [License](#license)
-- [Contributing](#contributing)
-- [Support](#support)
 
 ---
 
@@ -59,7 +56,7 @@ view_products.bat
 python serve.py
 ```
 
-**Important**: Don't open `products_display.html` directly! Use the viewer scripts above. See [HOW_TO_VIEW_PRODUCTS.md](HOW_TO_VIEW_PRODUCTS.md) for details.
+**Important**: Don't open `products_display.html` directly! Use the viewer scripts above to avoid CORS issues.
 
 ### Manual Setup
 
@@ -227,16 +224,18 @@ Each product is saved as a JSON object with the following fields:
 ## Project Structure
 
 ```
-├── main.py                                  # Main scraper script
-├── products_display.html                    # Product viewer with glassmorphism UI
-├── serve.py                                 # HTTP server for viewing products
-├── requirements.txt                         # Python dependencies
-├── config.example.py                        # Example configuration file
-├── README.md                                # This file
-├── .gitignore                               # Git ignore file
-├── products.json                            # Symlink to latest products (auto-created)
-├── aliexpress_products_*.json               # Generated JSON files (all products)
-└── aliexpress_products_top_rated_*.json     # Generated JSON files (top-rated only)
+├── main.py                       # Main scraper script
+├── products_display.html         # Product viewer with glassmorphism UI
+├── serve.py                      # HTTP server for viewing products
+├── requirements.txt              # Python dependencies
+├── README.md                     # This file
+├── .gitignore                    # Git ignore file
+├── setup.bat                     # Windows setup script
+├── setup.sh                      # Linux/Mac setup script
+├── view_products.bat             # Windows viewer launcher
+├── view_products.sh              # Linux/Mac viewer launcher
+├── products.json                 # Latest products (auto-created)
+└── aliexpress_products_*.json    # Generated JSON files with timestamps
 ```
 
 ## Screenshots
@@ -282,7 +281,6 @@ To avoid detection, the scraper:
   view_products.bat  # Windows
   ./view_products.sh # Linux/Mac
   ```
-  See [HOW_TO_VIEW_PRODUCTS.md](HOW_TO_VIEW_PRODUCTS.md) for detailed instructions.
 
 **Issue**: Captcha not being solved
 - **Solution**: The scraper will automatically retry. If it consistently fails, try:
@@ -324,32 +322,12 @@ This tool is for educational purposes only. When using this scraper:
 - Consider using proxies to distribute load
 - Be aware of legal implications in your jurisdiction
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-This software is provided for educational purposes only. See the disclaimer in the LICENSE file.
-
-## Contributing
-
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-### How to Contribute
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
-
 ## Support
 
 For issues or questions:
-1. Check the [Quick Reference Guide](QUICK_REFERENCE.md) for common tasks
-2. Review the [Troubleshooting](#troubleshooting) section
-3. Check the configuration settings in `config.example.py`
-4. See [SeleniumBase documentation](https://seleniumbase.io/)
-5. Review [CONTRIBUTING.md](CONTRIBUTING.md) for how to report issues
+1. Review the [Troubleshooting](#troubleshooting) section above
+2. Check the [SeleniumBase documentation](https://seleniumbase.io/)
+3. Verify your configuration settings match your requirements
 
 ---
 
